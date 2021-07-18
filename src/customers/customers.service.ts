@@ -19,4 +19,8 @@ export class CustomersService {
   findAll() {
     return this.customers;
   }
+  create() {
+    this.customers.push({ name: 'Ashish', age: 26 });
+    return this.customers;
+  }
 }

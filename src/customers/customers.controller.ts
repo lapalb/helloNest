@@ -1,4 +1,4 @@
-import { Get } from '@nestjs/common';
+import { Get, Param, Post } from '@nestjs/common';
 import { Controller } from '@nestjs/common';
 import { Customer } from './customer.interface';
 import { CustomersService } from './customers.service';
@@ -11,5 +11,15 @@ export class CustomersController {
   async findAll(): Promise<Customer[]> {
     return this.customersService.findAll();
   }
+
+  @Post()
+  async create(): Promise<Customer[]> {
+    return this.customersService.create();
+  }
+  @Get(':id')
+  findOne(@Param() params): string {
+  console.log(params.id);
+  return `This action returns a #${params.id} customer`;
+}
 
 }
